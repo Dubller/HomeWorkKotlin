@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="lable">Form Validation</string>
+    <string name="ussername">Ussername</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="text_valid">Валидация пройдена</string>
+</resources>
