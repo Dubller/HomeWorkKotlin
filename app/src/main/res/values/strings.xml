@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="select_spinner" />
+    <string-array name="mark">
+        <item>mercedes</item>
+        <item>bmw</item>
+        <item>opel</item>
+        <item>ford</item>
+        <item>audi</item>
+    </string-array>
+</resources>
