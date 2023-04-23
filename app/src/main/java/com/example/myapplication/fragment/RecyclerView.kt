@@ -15,7 +15,7 @@ class RecyclerView : AppCompatActivity() {
         recyclerview.layoutManager = LinearLayoutManager(this)
         val data = ArrayList<ItemsViewModel>()
         for (i in 1..50) {
-            data.add(ItemsViewModel(R.drawable.ic_baseline_folder_24, "Item " + i))
+            data.add(ItemsViewModel(R.drawable.icon_recycler, "Item " + i))
         }
         val adapter = CustomAdapter(data)
         recyclerview.adapter = adapter
