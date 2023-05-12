@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">NewHomeWork5</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="setting">Setting</string>
+    <string name="login_registracion">Registration</string>
+    <string name="ussername">Ussername</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="splash_screen">splash screen</string>
+</resources>
