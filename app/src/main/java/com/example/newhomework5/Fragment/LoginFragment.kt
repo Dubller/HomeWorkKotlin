@@ -13,17 +13,14 @@ import com.example.myapplication.databinding.FragmentLoginBinding
 
 class LoginFragment : Fragment() {
     private lateinit var refractPass: EditText
-
-    private var fragment_binding: FragmentLoginBinding? = null
-    private val binding get() = fragment_binding!!
+    private lateinit var binding: FragmentLoginBinding
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
-        fragment_binding = FragmentLoginBinding.inflate(inflater, container,false)
+        binding = FragmentLoginBinding.inflate(inflater, container,false)
         return binding.root
     }
 
