@@ -26,10 +26,8 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         val btnLogin = binding.btnLogin
         refractPass = binding.etPassword
-
 
             btnLogin.setOnClickListener{
             val password = refractPass.text.toString().trim().length

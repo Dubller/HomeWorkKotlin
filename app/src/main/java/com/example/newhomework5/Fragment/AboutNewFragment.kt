@@ -26,10 +26,8 @@ class AboutNewFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
- 
-        val btnBack = binding.btnBackToRecycler
-        btnBack.setOnClickListener{
-            findNavController().navigate(R.id.action_detailFragment_to_loginFragment)
+        binding.btnBackToRecycler.setOnClickListener{
+            findNavController().navigate(R.id.action_detailFragment_to_newRoomFragment)
         }
     }
 }
