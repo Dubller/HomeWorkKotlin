@@ -1,20 +1,28 @@
-package com.example.newhomework5.Fragment
+package com.example.newhomework5.vmmv.presentation.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentNewRoomBinding
-import com.example.newhomework5.adapter.RecyclerAdapter
-import com.example.newhomework5.data.BaseData
+import com.example.newhomework5.vmmv.domain.model.DomainPostList
+import com.example.newhomework5.vmmv.presentation.adapter.RecyclerAdapter
+import com.example.newhomework5.vmmv.presentation.view_model.NewsViewModel
 
 class NewRoomFragment : Fragment() {
 
     private lateinit var binding: FragmentNewRoomBinding
+    private var viewModel: NewsViewModel? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel = ViewModelProvider(owner = this)[NewsViewModel::class.java]
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,20 +33,18 @@ class NewRoomFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        initViews()
-    }
-    private fun initViews() {
-        initRecycler()
+       initRecycler()
     }
 
 private fun initRecycler() {
-binding.recyclerView.apply {
+    val posts = viewModel?.postList?.value ?: DomainPostList()
+
+    binding.recyclerView.apply {
     layoutManager = LinearLayoutManager(requireContext())
     adapter = RecyclerAdapter(
-        item = BaseData().elements(),
+        item = posts,
         onItemClickEvent = {
-            findNavController().navigate(R.id.action_newRoomFragment_to_detailFragment)
+            findNavController().navigate(R.id.action_newRoomFragment_to_aboutNewFragment)
         }
     )
 }

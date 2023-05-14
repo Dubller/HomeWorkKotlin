@@ -1,4 +1,4 @@
-package com.example.newhomework5.activities
+package com.example.newhomework5.vmmv.presentation.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -23,5 +23,7 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
+
+
     }
 }

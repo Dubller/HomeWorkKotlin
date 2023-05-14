@@ -1,4 +1,4 @@
-package com.example.newhomework5.Fragment
+package com.example.newhomework5.vmmv.presentation.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -26,7 +26,6 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         val btnLogin = binding.btnLogin
         refractPass = binding.etPassword
 
@@ -39,7 +38,7 @@ class LoginFragment : Fragment() {
                 else{
             btnLogin.setOnClickListener{
                 findNavController().navigate(R.id.action_loginFragment_to_newRoomFragment)
-            }
+                    }
                 }
             }
     }

@@ -1,12 +1,12 @@
-package com.example.newhomework5.data
+package com.example.newhomework5.vmmv.data.repository.remote
 
-import com.example.newhomework5.data.model.PostModel
-
-open class BaseData {
+import com.example.newhomework5.vmmv.data.remote.dto.PostModel
 
 
-    open fun elements(): List<PostModel> {
-        val posts = mutableListOf(
+class PostsRemoteImpl() : PostsRemote {
+
+    override fun getPosts(): List<PostModel> =
+        mutableListOf(
             PostModel(
                 id = 1,
                 title = "Title",
@@ -78,6 +78,11 @@ open class BaseData {
                 description = "Description"
             )
         )
-        return posts
-    }
+
+    override fun getPostInfo(): PostModel =
+        PostModel(
+            id = 1,
+            title = "French dog",
+            description = "Tulips (Tulipa) are a genus of spring-blooming perennial herbaceous bulbiferous geophytes (having bulbs as storage organs). The flowers are usually large, showy and brightly coloured, generally red, pink, yellow, or white (usually in warm colours).\u009D They often have a different coloured blotch at the base of the tepals (petals and sepals, collectively), internally. Because of a degree of variability within the populations, and a long history of cultivation, classification has been complex and controversial. The tulip is a member of the lily family, Liliaceae, along with 14 other genera, where it is most closely related to Amana, Erythronium and Gagea in the tribe Lilieae."
+        )
 }

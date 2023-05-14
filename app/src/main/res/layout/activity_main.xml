@@ -4,7 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/fragmentContainer"
-    tools:context="com.example.newhomework5.activities.MainActivity">
+    tools:context="com.example.newhomework5.vmmv.presentation.activity.MainActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary" />
+
     <include layout="@layout/content_main" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
