@@ -17,5 +17,6 @@ class NewsViewModel : ViewModel() {
 
     private fun getPosts() {
         _postList.value = PostsUseCase().getPosts()
+
     }
 }
