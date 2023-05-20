@@ -11,7 +11,9 @@ import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentAboutNewBinding
 import com.example.newhomework5.vmmv.domain.model.DomainPost
 import com.example.newhomework5.vmmv.presentation.view_model.AboutNewViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class AboutNewFragment: Fragment() {
 
     private lateinit var binding: FragmentAboutNewBinding
@@ -24,6 +26,7 @@ class AboutNewFragment: Fragment() {
         viewModel = ViewModelProvider(owner = this)[AboutNewViewModel::class.java]
         binding = FragmentAboutNewBinding.inflate(inflater, container, false);
         return binding.root
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

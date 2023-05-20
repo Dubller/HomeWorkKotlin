@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,16 +14,16 @@ import com.example.myapplication.databinding.FragmentNewRoomBinding
 import com.example.newhomework5.vmmv.domain.model.DomainPostList
 import com.example.newhomework5.vmmv.presentation.adapter.RecyclerAdapter
 import com.example.newhomework5.vmmv.presentation.view_model.NewsViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class NewRoomFragment : Fragment() {
 
     private lateinit var binding: FragmentNewRoomBinding
-    private var viewModel: NewsViewModel? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        viewModel = ViewModelProvider(owner = this)[NewsViewModel::class.java]
-    }
+
+    private val viewModel: NewsViewModel by viewModels()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,7 +38,7 @@ class NewRoomFragment : Fragment() {
     }
 
 private fun initRecycler() {
-    val posts = viewModel?.postList?.value ?: DomainPostList()
+        val posts =viewModel.postList.value ?: DomainPostList()
 
     binding.recyclerView.apply {
     layoutManager = LinearLayoutManager(requireContext())
