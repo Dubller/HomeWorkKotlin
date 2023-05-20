@@ -25,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/aboutNewFragment"
-        android:name="com.example.myapplication.aboutNewFragment"
+        android:name="com.example.newhomework5.vmmv.presentation.fragment.AboutNewFragment"
         android:label="fragment_aboutNewFragment"
         tools:layout="@layout/fragment_d1d" >
         <action
