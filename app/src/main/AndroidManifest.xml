@@ -2,8 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-
-
     <application
         android:name="com.example.newhomework5.vmmv.presentation.activity.HiltApplication"
         android:allowBackup="true"
@@ -11,18 +9,22 @@
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-            android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.NewHomeWork5"
+        android:theme="@style/Base.Theme.NewHomeWork5"
         tools:targetApi="31" >
+
         <activity
             android:name="com.example.newhomework5.vmmv.presentation.activity.MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.DayNight">
+            android:label="MyApp">
+
             <intent-filter>
+
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+
             </intent-filter>
         </activity>
     </application>
