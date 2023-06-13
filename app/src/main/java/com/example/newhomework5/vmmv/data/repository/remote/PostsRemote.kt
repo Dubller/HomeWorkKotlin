@@ -1,10 +1,10 @@
 package com.example.newhomework5.vmmv.data.repository.remote
 
 
-import com.example.newhomework5.vmmv.data.remote.dto.PostModel
+
+import com.example.newhomework5.vmmv.data.remote.dto.ResponseDto
 
 
 interface PostsRemote {
-    fun getPosts(): List<PostModel>
-    fun getPostInfo(): PostModel
+    suspend fun getPosts(): ResponseDto
 }

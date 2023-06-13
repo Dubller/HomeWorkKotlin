@@ -26,8 +26,7 @@
     <fragment
         android:id="@+id/aboutNewFragment"
         android:name="com.example.newhomework5.vmmv.presentation.fragment.AboutNewFragment"
-        android:label="fragment_aboutNewFragment"
-        tools:layout="@layout/fragment_d1d" >
+        android:label="fragment_aboutNewFragment">
         <action
             android:id="@+id/action_d1d_to_newRoomFragment"
             app:destination="@id/newRoomFragment" />

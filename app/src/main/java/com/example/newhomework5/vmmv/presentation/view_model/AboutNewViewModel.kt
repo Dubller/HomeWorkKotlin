@@ -8,10 +8,11 @@ import com.example.newhomework5.vmmv.domain.use_cases.GetPostInfoUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
+
 @HiltViewModel
 class AboutNewViewModel @Inject constructor(
-    private val getPostInfoUseCase: GetPostInfoUseCase
-    ) : ViewModel() {
+    private val getPostInfoUseCase : GetPostInfoUseCase
+)  : ViewModel() {
 
     private val _postInfo = MutableLiveData<DomainPost>()
     val postInfo: LiveData<DomainPost> = _postInfo
@@ -21,6 +22,6 @@ class AboutNewViewModel @Inject constructor(
     }
 
     private fun getPostInfo() {
-        _postInfo.value = getPostInfoUseCase.getPostInfo()
+//        _paymentInfo.value = getPostInfoUseCase.getPaymentInfo()
     }
 }

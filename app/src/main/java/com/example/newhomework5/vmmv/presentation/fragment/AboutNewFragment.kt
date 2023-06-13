@@ -5,9 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
-import com.example.myapplication.R
+import androidx.fragment.app.viewModels
 import com.example.myapplication.databinding.FragmentAboutNewBinding
 import com.example.newhomework5.vmmv.domain.model.DomainPost
 import com.example.newhomework5.vmmv.presentation.view_model.AboutNewViewModel
@@ -17,40 +15,34 @@ import dagger.hilt.android.AndroidEntryPoint
 class AboutNewFragment: Fragment() {
 
     private lateinit var binding: FragmentAboutNewBinding
-    private var viewModel: AboutNewViewModel? = null
+    private val viewModel: AboutNewViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        viewModel = ViewModelProvider(owner = this)[AboutNewViewModel::class.java]
         binding = FragmentAboutNewBinding.inflate(inflater, container, false);
+
         return binding.root
 
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         initView()
     }
 
     private fun initView() {
-        initToolbar()
-        initRecycler()
-    }
-    private fun initRecycler() {
-        val postInfo = viewModel?.postInfo?.value ?: DomainPost()
+
+    val postInfo = viewModel.postInfo.value ?: DomainPost()
 
         binding.apply {
-            postTitle.text = postInfo.title
-            postDescription.text = postInfo.description
+        postTitle.text =postInfo.title
+        postDescription.text =postInfo.description
         }
-    }
+}
 
-    private fun initToolbar() {
-        binding.toolbar.setNavigationOnClickListener {
-            findNavController().navigate(resId = R.id.action_d1d_to_newRoomFragment)
-        }
-    }
+
 
 }
 

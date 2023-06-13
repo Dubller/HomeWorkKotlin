@@ -6,13 +6,13 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
-import com.example.newhomework5.vmmv.data.remote.dto.PostModel
-import com.example.newhomework5.vmmv.domain.model.DomainPostList
+import com.example.newhomework5.vmmv.domain.model.DomainPost
 
 class RecyclerAdapter (
 
-    private val item: DomainPostList,
-    private val onItemClickEvent: (View) -> Unit) : RecyclerView.Adapter<RecyclerAdapter.MyViewHolder>() {
+    private val item: List<DomainPost>,
+    private val onItemClickEvent: (View) -> Unit
+    ) : RecyclerView.Adapter<RecyclerAdapter.MyViewHolder>() {
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val titleTextView: TextView = itemView.findViewById(R.id.twHeading)
@@ -20,24 +20,24 @@ class RecyclerAdapter (
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-val itemView =LayoutInflater.from(parent.context)
+    val itemView =LayoutInflater.from(parent.context)
     .inflate(R.layout.list_item, parent,false)
 
-itemView.setOnClickListener {
+    itemView.setOnClickListener {
     onItemClickEvent(it)
-}
-return MyViewHolder(itemView)
+    }
+    return MyViewHolder(itemView)
     }
 
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
        holder.apply {
-           titleTextView.text = item.posts[position].title
-           descriptionTextView.text = item.posts[position].description
+           titleTextView.text = item[position].title
+           descriptionTextView.text = item[position].description
        }
     }
 
     override fun getItemCount(): Int {
-        return item.posts.size
+        return item.size
     }
 }

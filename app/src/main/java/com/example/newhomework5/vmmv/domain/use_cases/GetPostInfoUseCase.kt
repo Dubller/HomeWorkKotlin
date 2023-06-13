@@ -10,5 +10,5 @@ import javax.inject.Singleton
 class GetPostInfoUseCase @Inject constructor(
     private val postRepository: PostRepository
     ) {
-    fun getPostInfo() = postRepository.getPostInfo().toDomainPost()
+ //   fun getPostInfo() = postRepository.getPostInfo().toDomainPost()
 }

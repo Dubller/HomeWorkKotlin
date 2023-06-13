@@ -6,22 +6,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentNewRoomBinding
-import com.example.newhomework5.vmmv.domain.model.DomainPostList
+import com.example.newhomework5.vmmv.data.remote.dto.PostDto
+import com.example.newhomework5.vmmv.domain.model.DomainPost
 import com.example.newhomework5.vmmv.presentation.adapter.RecyclerAdapter
+import com.example.newhomework5.vmmv.presentation.adapter.customItemDecoration.CustomItemDecoration
 import com.example.newhomework5.vmmv.presentation.view_model.NewsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class NewRoomFragment : Fragment() {
 
-    private lateinit var binding: FragmentNewRoomBinding
-
-
+    private var _binding: FragmentNewRoomBinding?= null
+    private val binding get() = _binding!!
     private val viewModel: NewsViewModel by viewModels()
 
 
@@ -29,19 +29,27 @@ class NewRoomFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentNewRoomBinding.inflate(inflater, container, false)
+        _binding = FragmentNewRoomBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-       initRecycler()
+       super.onViewCreated(view, savedInstanceState)
+        observePosts()
     }
 
-private fun initRecycler() {
-        val posts =viewModel.postList.value ?: DomainPostList()
+    private fun observePosts() {
+        viewModel.postList.observe(viewLifecycleOwner) {posts ->
+            initRecycler(posts)
+        }
+    }
+
+private fun initRecycler(posts: List<DomainPost>) {
+        val customItemDecoration = CustomItemDecoration(requireContext())
 
     binding.recyclerView.apply {
     layoutManager = LinearLayoutManager(requireContext())
+    addItemDecoration(customItemDecoration)
     adapter = RecyclerAdapter(
         item = posts,
         onItemClickEvent = {
